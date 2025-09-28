@@ -55,6 +55,7 @@ const FeaturesSection = () => {
         "Natural language processing for complex queries",
         "Integration with existing workplace tools",
       ],
+      image: "/service-1.jpeg",
     },
     {
       title: "Rapid AI Prototyping",
@@ -65,6 +66,7 @@ const FeaturesSection = () => {
         "Cost-effective rapid iteration cycles",
         "Multi-platform compatibility testing",
       ],
+      image: "/service-2.jpeg",
     },
     {
       title: "Predictive Maintenance System",
@@ -75,6 +77,7 @@ const FeaturesSection = () => {
         "Real-time performance monitoring",
         "Automated optimization recommendations",
       ],
+      image: "/service-3.jpeg",
     },
   ];
 
@@ -105,8 +108,12 @@ const FeaturesSection = () => {
                 Request Demo
               </button>
             </div>
-            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-              <span className="text-gray-500">AI Assistant Interface</span>
+            <div className="rounded-lg h-96 overflow-hidden flex items-center justify-center">
+              <img
+                src={feature.image}
+                alt={feature.title}
+                className="object-cover h-full w-full"
+              />
             </div>
           </div>
         </div>

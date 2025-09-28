@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function CTASection() {
   return (
     <section className="bg-gray-900 text-white py-20">
@@ -13,9 +15,12 @@ function CTASection() {
           <button className="bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
             Start Free Trial
           </button>
-          <button className="border border-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+          <Link
+            to="/contact-us"
+            className="border border-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+          >
             Contact Sales
-          </button>
+          </Link>
         </div>
       </div>
     </section>

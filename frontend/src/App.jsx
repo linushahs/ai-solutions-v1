@@ -54,7 +54,10 @@ const TrustedBySection = () => {
               key={index}
               className="bg-gray-100 rounded-lg py-0 px-4 flex items-center justify-center"
             >
-              <img src={`/logo_${index + 1}.png`} className="w-[140px] object-contain" />
+              <img
+                src={`/logo_${index + 1}.png`}
+                className="w-[140px] object-contain"
+              />
             </div>
           ))}
         </div>
@@ -71,18 +74,21 @@ const FeaturedProjects = () => {
       description:
         "A comprehensive analytics platform for Fortune 500 company.",
       status: "Completed 2024",
+      image: "/project1.jpg",
     },
     {
       title: "Smart Workflow Optimizer",
       description:
         "Streamlined operations reducing 80% of manufacturing overhead.",
       status: "Completed 2024",
+      image: "/project2.png",
     },
     {
       title: "Predictive Maintenance System",
       description:
         "IoT-powered predictive analytics for industrial equipment monitoring.",
       status: "Completed 2024",
+      image: "/project3.webp",
     },
   ];
 
@@ -101,8 +107,12 @@ const FeaturedProjects = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="bg-gray-200 rounded-lg h-48 mb-6 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
-                <span className="text-gray-500">Project Screenshot</span>
+              <div className="rounded-lg h-48 mb-6 flex items-center overflow-hidden justify-center">
+                <img
+                  src={project.image}
+                  alt="Project"
+                  className="object-cover size-full"
+                />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {project.title}
@@ -199,14 +209,10 @@ const UpcomingEvents = () => {
 // Gallery Component
 const Gallery = () => {
   const galleryItems = [
-    "Team Photo",
-    "Office Space",
-    "Conference",
-    "Workshop",
-    "Work Desk",
-    "Team Meeting",
-    "Live Work",
-    "Summit",
+    "/gallery-1.jpeg",
+    "/gallery-2.jpeg",
+    "/gallery-3.jpeg",
+    "/gallery-4.jpeg",
   ];
 
   return (
@@ -223,9 +229,13 @@ const Gallery = () => {
           {galleryItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-200 rounded-lg h-48 flex items-center justify-center hover:bg-gray-300 transition-colors cursor-pointer"
+              className="rounded-lg h-48 flex items-center justify-center overflow-hidden"
             >
-              <span className="text-gray-500 font-medium">{item}</span>
+              <img
+                src={item}
+                alt="Gallery"
+                className="object-cover size-full"
+              />
             </div>
           ))}
         </div>
