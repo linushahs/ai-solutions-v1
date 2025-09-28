@@ -16,7 +16,7 @@ export const StarRating = ({
     md: "w-6 h-6",
     lg: "w-7 h-7",
   };
-  
+
   return (
     <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((star) => (
@@ -68,12 +68,12 @@ const FeedbackCard = ({ feedback }) => {
         </div>
       </div>
 
-      <p className="text-gray-700 leading-relaxed">{feedback.message}</p>
+      <p className="text-gray-700 leading-relaxed">{feedback.comments}</p>
 
       {feedback.service && (
         <div className="mt-4">
           <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-            {feedback.service}
+            {feedback.services}
           </span>
         </div>
       )}

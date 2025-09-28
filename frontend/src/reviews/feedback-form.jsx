@@ -7,9 +7,9 @@ const FeedbackForm = ({ onSubmit, isSubmitting }) => {
     name: "",
     email: "",
     company: "",
-    service: "",
+    services: "",
     rating: 0,
-    message: "",
+    comments: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -30,7 +30,7 @@ const FeedbackForm = ({ onSubmit, isSubmitting }) => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email is invalid";
     }
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!formData.comments.trim()) newErrors.comments = "Feedback is required";
     if (formData.rating === 0) newErrors.rating = "Please provide a rating";
 
     setErrors(newErrors);
@@ -113,14 +113,14 @@ const FeedbackForm = ({ onSubmit, isSubmitting }) => {
               Service Used
             </label>
             <select
-              value={formData.service}
-              onChange={(e) => handleInputChange("service", e.target.value)}
+              value={formData.services}
+              onChange={(e) => handleInputChange("services", e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent outline-none transition-colors"
             >
-              <option value="">Select a service</option>
-              {services.map((service) => (
-                <option key={service} value={service}>
-                  {service}
+              <option value="">Select a services</option>
+              {services.map((services) => (
+                <option key={services} value={services}>
+                  {services}
                 </option>
               ))}
             </select>
@@ -150,16 +150,16 @@ const FeedbackForm = ({ onSubmit, isSubmitting }) => {
               Your Feedback *
             </label>
             <textarea
-              value={formData.message}
-              onChange={(e) => handleInputChange("message", e.target.value)}
+              value={formData.comments}
+              onChange={(e) => handleInputChange("comments", e.target.value)}
               rows="4"
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent outline-none transition-colors resize-vertical ${
-                errors.message ? "border-red-500" : "border-gray-300"
+                errors.comments ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="Share your experience with our services..."
             />
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            {errors.comments && (
+              <p className="text-red-500 text-sm mt-1">{errors.comments}</p>
             )}
           </div>
         </div>

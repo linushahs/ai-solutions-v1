@@ -1,0 +1,22 @@
+# Backend - Python/Django files
+backend/myproject/env/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.py[cod]
+backend/**/db.sqlite3
+backend/**/media/
+backend/**/staticfiles/
+backend/**/*.log
+backend/**/.env
+
+# Frontend - Node.js/React files
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/**/*.log
+frontend/coverage/
