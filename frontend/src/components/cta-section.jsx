@@ -12,15 +12,10 @@ function CTASection() {
           their innovation and enhance employee productivity.
         </p>
         <div className="flex justify-center space-x-4">
-          <button className="bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
-            Start Free Trial
-          </button>
-          <Link
-            to="/contact-us"
-            className="border border-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-          >
+          <Link to="/contact-us" className="bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
             Contact Sales
           </Link>
+         
         </div>
       </div>
     </section>

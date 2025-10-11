@@ -8,6 +8,7 @@ backend/**/media/
 backend/**/staticfiles/
 backend/**/*.log
 backend/**/.env
+backend/**/migrations
 
 # Frontend - Node.js/React files
 frontend/node_modules/

@@ -8,6 +8,9 @@ import ContactUsPage from "./contactus/index.jsx";
 import { Toaster } from "react-hot-toast";
 import Chatbot from "./components/chatbot/chatbot.jsx";
 import ReviewsPage from "./reviews/index.jsx";
+import EventsPage from "./events/index.jsx";
+import BlogsPage from "./blogs/index.jsx";
+import BlogsDetailPage from "./blogs/blog-detail.jsx";
 
 let router = createBrowserRouter([
   {
@@ -24,8 +27,20 @@ let router = createBrowserRouter([
   },
   {
     path: "/reviews",
-    Component: ReviewsPage
-  }
+    Component: ReviewsPage,
+  },
+  {
+    path: "/events",
+    Component: EventsPage,
+  },
+  {
+    path: "/blogs",
+    Component: BlogsPage,
+  },
+  {
+    path: "/blogs/:slug",
+    Component: BlogsDetailPage,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

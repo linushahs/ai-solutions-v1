@@ -51,12 +51,9 @@ const ServicesSection = ({ className, showMoreBtn }) => {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-2 leading-relaxed">
                 {service.description}
               </p>
-              <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center">
-                Learn More <ArrowRight className="ml-1 w-4 h-4" />
-              </button>
             </div>
           ))}
         </div>

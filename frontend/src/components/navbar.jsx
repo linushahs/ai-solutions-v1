@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { NavLink, useLocation } from "react-router";
+import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,18 +14,19 @@ const navMenus = [
   { name: "Projects", path: "/#projects" },
   {
     name: "Events",
-    path: "/#events",
     dropdown: [
-      { name: "Upcoming Events", path: "/#events" },
+      { name: "Upcoming Events", path: "/events#upcoming" },
+      { name: "Past Events", path: "/events#past" },
       { name: "Gallery", path: "/#gallery" },
     ],
   },
   { name: "Reviews & Rating", path: "/reviews" },
-  { name: "Contact Us", path: "/contact-us" },
+  { name: "Blogs", path: "/blogs" },
 ];
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if there's a hash in the URL
@@ -42,7 +43,7 @@ const Navbar = () => {
 
   const handleDropdownItemClick = (path) => {
     // Navigate to the hash section
-    window.location = path;
+    navigate(path);
 
     // Scroll to the element
     setTimeout(() => {
@@ -59,14 +60,14 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center space-x-2">
+          <Link to={"/"} className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gray-800 text-white rounded flex items-center justify-center font-bold">
               AI
             </div>
             <span className="text-xl font-semibold text-gray-800">
               AI Solutions
             </span>
-          </div>
+          </Link>
 
           <nav className="hidden md:flex space-x-8">
             {navMenus.map((menu, index) => {
@@ -114,9 +115,12 @@ const Navbar = () => {
             })}
           </nav>
 
-          <button className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
-            Get Started
-          </button>
+          <Link
+            to={"/contact-us"}
+            className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
     </nav>

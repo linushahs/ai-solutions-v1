@@ -42,3 +42,54 @@ export const ReviewService = {
     }
   },
 };
+
+export const EventService = {
+  async getUpcomingEvents() {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/api/v1/events/upcoming/`
+      );
+      return response.data;
+    } catch (error) {
+      console.log("Unable to fetch upcoming events!", error);
+    }
+  },
+  async getPastEvents() {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/v1/events/past/`);
+      return response.data;
+    } catch (error) {
+      console.log("Unable to fetch past events!", error);
+    }
+  },
+};
+
+export const BlogsService = {
+  async getAllBlogs({ params }) {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/v1/blogs/`, {
+        params,
+      });
+      return response.data;
+    } catch (error) {
+      console.log("Unable to fetch blogs!", error);
+    }
+  },
+  async getBlogDetail(slug) {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/v1/blogs/${slug}/`);
+      return response.data;
+    } catch (error) {
+      console.log("Unable to fetch blog detail!", error);
+      throw error;
+    }
+  },
+  async getBlogCategories() {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/v1/categories/`);
+      return response.data;
+    } catch (error) {
+      console.log("Unable to fetch blog categories!", error);
+    }
+  },
+};

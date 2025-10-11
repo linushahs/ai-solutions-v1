@@ -2,6 +2,8 @@ import { ArrowRight, Clock, MapPin } from "lucide-react";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import ServicesSection from "./components/services";
+import { Link } from "react-router";
+import { UpcomingEventsSection } from "./events";
 
 // Hero Section Component
 const HeroSection = () => {
@@ -19,9 +21,12 @@ const HeroSection = () => {
               challenges.
             </p>
             <div className="flex space-x-4">
-              <button className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors flex items-center">
+              <Link
+                to={"/services"}
+                className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors flex items-center"
+              >
                 Explore Solutions <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
+              </Link>
             </div>
           </div>
           <div className="bg-gray-200 rounded-lg h-96 flex items-center overflow-hidden justify-center">
@@ -87,7 +92,7 @@ const FeaturedProjects = () => {
       title: "Predictive Maintenance System",
       description:
         "IoT-powered predictive analytics for industrial equipment monitoring.",
-      status: "Completed 2024",
+      status: "Completed 2025",
       image: "/project3.webp",
     },
   ];
@@ -120,83 +125,6 @@ const FeaturedProjects = () => {
               <p className="text-gray-600 mb-4">{project.description}</p>
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-500">{project.status}</span>
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
-                  View Case Study →
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Upcoming Events Component
-const UpcomingEvents = () => {
-  const events = [
-    {
-      date: { day: "15", month: "MAY" },
-      title: "AI Innovation Summit 2025",
-      location: "London, UK",
-      time: "9:00 AM - 6:00 PM",
-      description: "Explore Future of AI in Digital Workplace",
-    },
-    {
-      date: { day: "22", month: "MAY" },
-      title: "Tech Startup Showcase",
-      location: "Manchester, UK",
-      time: "2:00 PM - 8:00 PM",
-      description: "Networking & showcasing promising startups",
-    },
-  ];
-
-  return (
-    <section id="events" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Upcoming Events
-          </h2>
-          <p className="text-xl text-gray-600">
-            Join us at industry conferences and workshops
-          </p>
-        </div>
-
-        <div className="space-y-8">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-6">
-                  <div className="bg-gray-800 text-white rounded-lg p-4 text-center min-w-[80px]">
-                    <div className="text-xs font-medium opacity-75">
-                      {event.date.month}
-                    </div>
-                    <div className="text-2xl font-bold">{event.date.day}</div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {event.title}
-                    </h3>
-                    <div className="flex items-center space-x-4 text-gray-600 mb-2">
-                      <div className="flex items-center">
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {event.location}
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="w-4 h-4 mr-1" />
-                        {event.time}
-                      </div>
-                    </div>
-                    <p className="text-gray-600">{event.description}</p>
-                  </div>
-                </div>
-                {/* <button className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
-                  Register
-                </button> */}
               </div>
             </div>
           ))}
@@ -253,7 +181,7 @@ const App = () => {
       <TrustedBySection />
       <ServicesSection />
       <FeaturedProjects />
-      <UpcomingEvents />
+      <UpcomingEventsSection className={"bg-gray-50"}/>
       <Gallery />
       <Footer />
     </div>

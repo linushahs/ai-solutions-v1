@@ -1,20 +1,23 @@
 import { Building, Users } from "lucide-react";
+import { Link } from "react-router";
 
 const Footer = () => {
   const footerSections = {
     Solutions: [
-      "AI Virtual Assistant",
-      "Rapid Prototyping",
-      "Predictive Analytics",
-      "Custom Development",
+      { label: "AI Virtual Assistant", href: "/services#ai-virtual-assistant" },
+      { label: "Rapid Prototyping", href: "/services#rapid-ai-prototyping" },
+      { label: "Predictive Analytics", href: "/services#predictive-analytics" },
     ],
-    Company: ["About Us", "Careers", "News & Press", "Partners"],
+    Company: [
+      { label: "Services", href: "/services" },
+      { label: "Projects", href: "/#projects" },
+      { label: "Events", href: "/events" },
+      { label: "Gallery", href: "/#gallery" },
+      { label: "Reviews & Rating", href: "/reviews" },
+    ],
     Support: [
-      "Help Center",
-      "Documentation",
-      "API Reference",
-      "Community",
-      "Terms of Service",
+      { label: "Contact Us", href: "/contact-us" },
+      { label: "Help Centre" },
     ],
   };
 
@@ -52,12 +55,16 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {links.map((link, index) => (
                     <li key={index}>
-                      <a
-                        href="#"
-                        className="text-gray-400 hover:text-white transition-colors"
-                      >
-                        {link}
-                      </a>
+                      {link.href ? (
+                        <Link
+                          to={link.href}
+                          className="text-gray-400 hover:text-white transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <span className="text-gray-400">{link.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -72,16 +79,10 @@ const Footer = () => {
               © 2025 AI Solutions. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
+              <a href="" className="text-gray-400 ">
                 Privacy Policy
               </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
+              <a href="" className="text-gray-400">
                 Terms of Service
               </a>
             </div>

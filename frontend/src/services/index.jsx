@@ -16,6 +16,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { Link } from "react-router";
 import CTASection from "../components/cta-section";
+import { twMerge } from "tailwind-merge";
 
 // Services Hero Section
 const ServicesHero = () => {
@@ -48,6 +49,7 @@ const FeaturesSection = () => {
   const features = [
     {
       title: "AI-Powered Virtual Assistant",
+      id: "ai-virtual-assistant",
       description:
         "Our intelligent virtual assistant revolutionizes workplace communication by providing instant, contextual responses to user inquiries. Built with advanced natural language processing, it understands complex queries and delivers precise solutions.",
       points: [
@@ -59,6 +61,7 @@ const FeaturesSection = () => {
     },
     {
       title: "Rapid AI Prototyping",
+      id: "rapid-ai-prototyping",
       description:
         "Accelerate your innovation cycle with our AI-driven prototyping platform. Transform ideas into functional prototypes in record time while maintaining cost-effectiveness and quality.",
       points: [
@@ -70,6 +73,7 @@ const FeaturesSection = () => {
     },
     {
       title: "Predictive Maintenance System",
+      id: "predictive-analytics",
       description:
         "Proactively monitor and enhance your digital employee experience with predictive analytics and real-time issue resolution. Our AI continuously learns and adapts to prevent disruptions.",
       points: [
@@ -82,11 +86,12 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 space-y-20">
+    <section className="pt-8 pb-20 bg-gray-50">
       {features.map((feature, index) => (
         <div
+          id={feature.id}
           key={feature.title}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          className={twMerge("max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8")}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className={index % 2 === 0 ? "" : "order-last"}>
@@ -104,9 +109,9 @@ const FeaturesSection = () => {
                   </li>
                 ))}
               </ul>
-              <button className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+              {/* <button className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors">
                 Request Demo
-              </button>
+              </button> */}
             </div>
             <div className="rounded-lg h-96 overflow-hidden flex items-center justify-center">
               <img
