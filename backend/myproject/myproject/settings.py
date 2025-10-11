@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,10 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,9 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_filters",
     'rest_framework',
-    'contacts',
     'corsheaders',
+    'contacts',
     "reviews",
+    "events",
+    "blogs",
 ]
 
 MIDDLEWARE = [
@@ -137,6 +144,18 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # or 'console.Ema
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "" # your email here
-EMAIL_HOST_PASSWORD = ""  # use an app password for Gmail
+EMAIL_HOST_USER = "suniltraveler2004@gmail.com" # your email here
+EMAIL_HOST_PASSWORD = "hljz jmkc grct alzj"  # use an app password for Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Jazzmin configuration
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "AI Solutions Admin",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "AI Solutions",
+
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_brand": "AI Solutions"
+}

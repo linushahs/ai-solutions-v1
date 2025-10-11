@@ -1,5 +1,0 @@
-django-cors-headers
-django
-djangorestframework
-matplotlib
-django-filter

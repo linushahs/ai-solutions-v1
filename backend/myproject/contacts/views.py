@@ -8,6 +8,7 @@ class ContactViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = ContactSerializer(data=request.data)
         if serializer.is_valid():
+            serializer.save()
             data = serializer.validated_data
 
             subject = f"New Inquiry from {data.get('firstName')} {data.get('lastName', '')}"
