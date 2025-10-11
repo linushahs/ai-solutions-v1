@@ -1,4 +1,3 @@
-import React from "react";
 import ChatBot from "react-chatbotify";
 
 function Chatbot() {
@@ -43,7 +42,7 @@ function Chatbot() {
     provideInfo: {
       message: "Great! What would you like to know about us?",
       chatDisabled: true,
-      options: ["Portfolio", "Solutions", "Contact", "Blogs"],
+      options: ["Services", "Events", "Reviews", "Contact", "Blogs"],
       path: "process_options",
     },
     unknown_input: {
@@ -58,17 +57,20 @@ function Chatbot() {
       path: async (params) => {
         let link = "";
         switch (params.userInput) {
-          case "Portfolio":
-            link = "http://localhost:5173/portfolio";
+          case "Services":
+            link = "http://localhost:5173/services";
             break;
-          case "Solutions":
-            link = "http://localhost:5173/solutions";
+          case "Events":
+            link = "http://localhost:5173/events";
             break;
-          case "Contact":
-            link = "http://localhost:5173/contactus";
+          case "Reviews":
+            link = "http://localhost:5173/reviews";
             break;
           case "Blogs":
             link = "http://localhost:5173/blogs";
+            break;
+          case "Contact":
+            link = "http://localhost:5173/contact-us";
             break;
           default:
             return "unknown_input";
